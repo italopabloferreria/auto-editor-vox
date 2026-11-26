@@ -1,0 +1,99 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: #f4f4f9;
+      color: #1d2a44;
+      font-family: "Inter", sans-serif;
+    }
+    .paper-bg {
+      position: absolute;
+      inset: 0;
+      background: #f4f4f9;
+    }
+    .safe-frame {
+      position: absolute;
+      inset: 108px 192px 175px 192px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 40px;
+    }
+    .tag {
+      font-family: "Space Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: #c24400;
+      letter-spacing: 0.08em;
+    }
+    .myth-box {
+      position: relative;
+      display: inline-block;
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-size: 54px;
+      color: #45474d;
+      align-self: flex-start;
+    }
+    .strike {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 52%;
+      height: 6px;
+      background: #ff6b00;
+      transform-origin: left center;
+    }
+    .fact-card {
+      background: #bbdf32;
+      border: 4px solid #1d2a44;
+      box-shadow: 12px 12px 0 #1d2a44;
+      padding: 40px 48px;
+    }
+    .fact-text {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 64px;
+      line-height: 1.14;
+      color: #1d2a44;
+    }
+  </style>
+
+  <div
+    id="root"
+    data-composition-id="quote-highlight"
+    data-start="0"
+    data-duration="4"
+    data-width="1920"
+    data-height="1080"
+  >
+    <div class="paper-bg"></div>
+    <div class="safe-frame">
+      <div class="tag" id="q-tag">MITO VS. REALIDADE</div>
+      <div class="myth-box" id="q-myth">
+        “Editar sem mostrar o rosto exige semanas.”
+        <div class="strike" id="q-strike"></div>
+      </div>
+      <div class="fact-card" id="q-fact">
+        <p class="fact-text" data-var-text="factText">
+          Seu roteiro vira cena editável em minutos.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+
+    tl.fromTo("#q-tag", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25 }, 0.05)
+      .fromTo("#q-myth", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.3 }, 0.15)
+      .fromTo("#q-strike", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power2.inOut" }, 0.5)
+      .fromTo("#q-fact", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.8);
+
+    window.__timelines["quote-highlight"] = tl;
+    tl.seek(0);
+  </script>
+</template>

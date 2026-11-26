@@ -1,0 +1,138 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: #f4f4f9;
+      color: #1d2a44;
+      font-family: "Inter", sans-serif;
+    }
+    .bg {
+      position: absolute;
+      inset: 0;
+      background: #f4f4f9;
+      background-image: radial-gradient(rgba(17, 18, 20, 0.1) 1.5px, transparent 1.5px);
+      background-size: 32px 32px;
+    }
+    .source-tag {
+      position: absolute;
+      top: 44px;
+      left: 140px;
+      background: #1d2a44;
+      color: #f4f4f9;
+      font-family: "Space Mono", monospace;
+      font-size: 28px;
+      padding: 6px 16px;
+      border-left: 4px solid #ff6b00;
+    }
+    .safe {
+      position: absolute;
+      inset: 112px 140px 190px 140px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 52px;
+      align-items: center;
+    }
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .kicker {
+      font-family: "Space Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: #c24400;
+    }
+    .headline {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 68px;
+      line-height: 1.08;
+      color: #1d2a44;
+    }
+    .dossier {
+      background: #bbdf32;
+      border: 4px solid #1d2a44;
+      box-shadow: 12px 12px 0 #1d2a44;
+      padding: 30px 34px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .d-label {
+      font-family: "Space Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: #1d2a44;
+    }
+    .d-title {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 52px;
+      color: #1d2a44;
+    }
+    .d-sub {
+      font-size: 30px;
+      color: #1e2024;
+    }
+    .mugshot {
+      background: #1d2a44;
+      padding: 16px;
+      border: 4px solid #1d2a44;
+      box-shadow: 14px 14px 0 #bbdf32;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .photo-box {
+      width: 100%;
+      height: 540px;
+      overflow: hidden;
+      background: #141518;
+    }
+    .photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+      display: block;
+    }
+    .mug-cap {
+      font-family: "Space Mono", monospace;
+      font-size: 28px;
+      color: #bbdf32;
+      text-align: center;
+    }
+  </style>
+  <div id="root" data-composition-id="scene-02-intro" data-start="0" data-duration="53" data-width="1920" data-height="1080">
+    <div class="bg"></div>
+    <div class="source-tag">FONTE: WIKIMEDIA COMMONS · MUGSHOT 1968</div>
+    <div class="safe">
+      <div class="left">
+        <div class="kicker">CRIMES REAIS · MISTÉRIOS · INEXPLICÁVEIS</div>
+        <h2 class="headline" id="s2-h">Bem-vindo ao canal do Marcos</h2>
+        <div class="dossier" id="s2-card">
+          <div class="d-label">EPISÓDIO // FAMÍLIA MANSON</div>
+          <div class="d-title">Charles Manson</div>
+          <div class="d-sub">Como um líder de seita arquitetou o crime que chocou Hollywood em 1969.</div>
+        </div>
+      </div>
+      <div class="mugshot" id="s2-mug">
+        <div class="photo-box">
+          <img id="s2-img" src="assets/images/manson.jpg" alt="Charles Manson 1968" />
+        </div>
+        <div class="mug-cap">ARQUIVO POLICIAL // 1968</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s2-h", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, 0.3)
+      .fromTo("#s2-img", { scale: 1 }, { scale: 1.05, duration: 52, ease: "none" }, 0)
+      .fromTo("#s2-card", { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 28.5);
+    window.__timelines["scene-02-intro"] = tl;
+    tl.seek(0);
+  </script>
+</template>

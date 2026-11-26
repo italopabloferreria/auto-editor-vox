@@ -1,0 +1,151 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: #f4f4f9;
+      color: #1d2a44;
+      font-family: "Inter", sans-serif;
+    }
+    .bg {
+      position: absolute;
+      inset: 0;
+      background: #f4f4f9;
+    }
+    .safe {
+      position: absolute;
+      inset: 88px 140px 190px 140px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 44px;
+      align-items: center;
+    }
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .tag {
+      font-family: "Space Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: #c24400;
+    }
+    .title {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 56px;
+      color: #1d2a44;
+    }
+    .rows {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .box {
+      background: #ffffff;
+      border: 3px solid #1d2a44;
+      box-shadow: 8px 8px 0 #1d2a44;
+      padding: 20px 24px;
+    }
+    .yr {
+      font-family: "Space Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: #c24400;
+      margin-bottom: 4px;
+    }
+    .txt {
+      font-size: 28px;
+      font-weight: 600;
+      color: #1d2a44;
+    }
+    .cta {
+      background: #1d2a44;
+      color: #bbdf32;
+      font-family: "Archivo Black", sans-serif;
+      font-size: 32px;
+      padding: 18px 24px;
+      text-align: center;
+    }
+    .mug {
+      background: #1d2a44;
+      padding: 18px;
+      border: 4px solid #1d2a44;
+      box-shadow: 12px 12px 0 #ff6b00;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .p-box {
+      position: relative;
+      width: 100%;
+      height: 520px;
+      overflow: hidden;
+      background: #141518;
+    }
+    .p-box img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+      display: block;
+    }
+    .mug-lbl {
+      font-family: "Space Mono", monospace;
+      font-size: 28px;
+      color: #bbdf32;
+      text-align: center;
+    }
+  </style>
+  <div id="root" data-composition-id="scene-10-julgamento" data-start="0" data-duration="128.21" data-width="1920" data-height="1080">
+    <div class="bg"></div>
+    <div class="safe">
+      <div class="left">
+        <div class="tag">DESFECHO JUDICIAL // 1970–2017</div>
+        <h2 class="title">Julgamento, Condenação e Fim</h2>
+        <div class="rows">
+          <div class="box" id="s10-1">
+            <div class="yr">1970–1971</div>
+            <div class="txt">Condenados à pena de morte após testemunho chave.</div>
+          </div>
+          <div class="box" id="s10-2">
+            <div class="yr">1972</div>
+            <div class="txt">Suprema Corte converte penas em prisão perpétua.</div>
+          </div>
+          <div class="box" id="s10-3">
+            <div class="yr">PROTESTO</div>
+            <div class="txt">Marca um "X" na testa — depois virou suástica.</div>
+          </div>
+          <div class="box" id="s10-4">
+            <div class="yr">2017</div>
+            <div class="txt">Morre na prisão aos 83 anos de causas naturais.</div>
+          </div>
+        </div>
+        <div class="cta" id="s10-cta">INSCREVA-SE · DEIXE O LIKE · ATIVE O SININHO</div>
+      </div>
+      <div class="mug">
+        <div class="p-box">
+          <img id="s10-p1" src="assets/images/manson_trial.jpg" alt="Julgamento Família Manson" />
+          <img id="s10-p2" src="assets/images/manson_family.jpg" alt="Manson 1971 com X na testa" style="opacity:0;" />
+        </div>
+        <div class="mug-lbl">ARQUIVO JUDICIAL · 1971–1973</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s10-1", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, 1.0)
+      .fromTo("#s10-2", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, 34.0)
+      .fromTo("#s10-3", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, 62.0)
+      .to("#s10-p2", { opacity: 1, duration: 0.5 }, 62.5)
+      .fromTo("#s10-4", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, 80.0)
+      .fromTo("#s10-cta", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.45 }, 114.0);
+    window.__timelines["scene-10-julgamento"] = tl;
+    tl.seek(0);
+  </script>
+</template>

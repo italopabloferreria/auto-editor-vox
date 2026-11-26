@@ -1,0 +1,164 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: #1d2a44;
+      color: #f4f4f9;
+      font-family: "Inter", sans-serif;
+    }
+    .bg {
+      position: absolute;
+      inset: 0;
+      background: #1d2a44;
+    }
+    .source-tag {
+      position: absolute;
+      top: 40px;
+      left: 140px;
+      background: #000000;
+      color: #d0d3da;
+      font-family: "Space Mono", monospace;
+      font-size: 28px;
+      padding: 6px 16px;
+      border-left: 4px solid #bbdf32;
+    }
+    .safe {
+      position: absolute;
+      inset: 104px 140px 190px 140px;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 44px;
+      align-items: center;
+    }
+    .photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .p-frame {
+      background: #f4f4f9;
+      padding: 12px;
+      border: 3px solid #bbdf32;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .p-box {
+      width: 100%;
+      height: 460px;
+      overflow: hidden;
+      background: #141518;
+    }
+    .p-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+      display: block;
+    }
+    .p-lbl {
+      font-family: "Space Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: #1d2a44;
+      text-align: center;
+    }
+    .right {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .date {
+      font-family: "Space Mono", monospace;
+      font-size: 28px;
+      color: #bbdf32;
+    }
+    .title {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 56px;
+      color: #f4f4f9;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .person {
+      background: rgba(244, 244, 249, 0.08);
+      border-left: 8px solid #bbdf32;
+      padding: 22px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .p-name {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 34px;
+      color: #f4f4f9;
+    }
+    .p-role {
+      font-size: 28px;
+      color: #d0d3da;
+    }
+    .footer {
+      font-family: "Space Mono", monospace;
+      font-size: 28px;
+      color: #00f5d4;
+    }
+  </style>
+  <div id="root" data-composition-id="scene-03-cielo" data-start="0" data-duration="72.5" data-width="1920" data-height="1080">
+    <div class="bg"></div>
+    <div class="source-tag">FONTE: WIKIMEDIA COMMONS · 1968–1969</div>
+    <div class="safe">
+      <div class="photos">
+        <div class="p-frame" id="s3-p1">
+          <div class="p-box"><img id="s3-img1" src="assets/images/sharon_tate.jpg" alt="Sharon Tate" /></div>
+          <div class="p-lbl">SHARON TATE</div>
+        </div>
+        <div class="p-frame" id="s3-p2">
+          <div class="p-box"><img id="s3-img2" src="assets/images/polanski.jpg" alt="Roman Polanski" /></div>
+          <div class="p-lbl">ROMAN POLANSKI</div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="date">08 DE AGOSTO DE 1969 · NOITE DE VERÃO</div>
+        <h2 class="title">10050 Cielo Drive</h2>
+        <div class="grid">
+          <div class="person" id="p-tate">
+            <div class="p-name">Sharon Tate</div>
+            <div class="p-role">Atriz · Grávida de 8 meses</div>
+          </div>
+          <div class="person" id="p-sebring">
+            <div class="p-name">Jay Sebring</div>
+            <div class="p-role">Cabeleireiro · Ex-namorado</div>
+          </div>
+          <div class="person" id="p-folger">
+            <div class="p-name">Abigail Folger</div>
+            <div class="p-role">Socialite · Quarto de hóspedes</div>
+          </div>
+          <div class="person" id="p-voytek">
+            <div class="p-name">Voytek Frykowski</div>
+            <div class="p-role">Escritor · Sofá da sala</div>
+          </div>
+        </div>
+        <div class="footer" id="s3-foot">MADRUGADA DO DIA 9: 4 INVASORES SE APROXIMAM DO PORTÃO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s3-img1", { scale: 1 }, { scale: 1.05, duration: 72, ease: "none" }, 0)
+      .fromTo("#s3-img2", { scale: 1 }, { scale: 1.05, duration: 72, ease: "none" }, 0)
+      .fromTo("#p-tate", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.4 }, 5.5)
+      .fromTo("#p-sebring", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.4 }, 12.5)
+      .fromTo("#p-folger", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.4 }, 16.5)
+      .fromTo("#p-voytek", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.4 }, 21.0)
+      .fromTo("#s3-foot", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 48.0);
+    window.__timelines["scene-03-cielo"] = tl;
+    tl.seek(0);
+  </script>
+</template>

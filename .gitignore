@@ -1,0 +1,15 @@
+# Mídias pesadas e caches locais (não enviar ao GitHub)
+raw/
+audio/
+renders/
+*.wav
+*.mp4
+*.mp3
+*.webm
+*.ogg
+*.ogv
+node_modules/
+.hyperframes/
+.cache/
+__pycache__/
+*.pyc

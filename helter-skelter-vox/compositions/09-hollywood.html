@@ -1,0 +1,123 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: #1d2a44;
+      color: #f4f4f9;
+      font-family: "Inter", sans-serif;
+    }
+    .bg {
+      position: absolute;
+      inset: 0;
+      background: #1d2a44;
+    }
+    .broll-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.22;
+    }
+    .safe {
+      position: absolute;
+      inset: 84px 140px 190px 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .tag {
+      font-family: "Space Mono", monospace;
+      font-size: 28px;
+      color: #bbdf32;
+    }
+    .title {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 60px;
+      color: #f4f4f9;
+    }
+    .cast {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+    .c-card {
+      background: #f4f4f9;
+      color: #1d2a44;
+      border: 3px solid #bbdf32;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .c-photo {
+      width: 100%;
+      height: 310px;
+      overflow: hidden;
+      background: #141518;
+    }
+    .c-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+      display: block;
+    }
+    .c-name {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 28px;
+      color: #1d2a44;
+      text-align: center;
+    }
+    .banner {
+      background: #bbdf32;
+      color: #1d2a44;
+      padding: 20px 28px;
+      font-size: 30px;
+      font-weight: 700;
+    }
+  </style>
+  <div id="root" data-composition-id="scene-09-hollywood" data-start="0" data-duration="39.5" data-width="1920" data-height="1080">
+    <div class="bg"></div>
+    <video id="s9-broll" class="clip broll-bg" src="assets/broll/la_1960s.mp4" muted data-start="0" data-duration="15"></video>
+    <div class="safe">
+      <div>
+        <div class="tag">CULTURA POP &amp; CINEMA // QUENTIN TARANTINO</div>
+        <h2 class="title">Era Uma Vez em... Hollywood</h2>
+      </div>
+      <div class="cast">
+        <div class="c-card" id="s9-1">
+          <div class="c-photo"><img src="assets/images/tarantino.jpg" alt="Quentin Tarantino" /></div>
+          <div class="c-name">Quentin Tarantino</div>
+        </div>
+        <div class="c-card" id="s9-2">
+          <div class="c-photo"><img src="assets/images/dicaprio.jpg" alt="Leonardo DiCaprio" /></div>
+          <div class="c-name">Leonardo DiCaprio</div>
+        </div>
+        <div class="c-card" id="s9-3">
+          <div class="c-photo"><img src="assets/images/brad_pitt.jpg" alt="Brad Pitt" /></div>
+          <div class="c-name">Brad Pitt</div>
+        </div>
+        <div class="c-card" id="s9-4">
+          <div class="c-photo"><img src="assets/images/margot_robbie.jpg" alt="Margot Robbie" /></div>
+          <div class="c-name">Margot Robbie</div>
+        </div>
+      </div>
+      <div class="banner" id="s9-ban">Ficção vs. Realidade: no filme, Polanski e Sharon Tate já recebem Manson em Cielo Drive.</div>
+    </div>
+  </div>
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s9-1", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.35 }, 13.0)
+      .fromTo("#s9-2", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.35 }, 19.0)
+      .fromTo("#s9-3", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.35 }, 20.5)
+      .fromTo("#s9-4", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.35 }, 22.0)
+      .fromTo("#s9-ban", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 27.0);
+    window.__timelines["scene-09-hollywood"] = tl;
+    tl.seek(0);
+  </script>
+</template>

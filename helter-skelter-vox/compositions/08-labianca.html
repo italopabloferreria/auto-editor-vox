@@ -1,0 +1,127 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: #f4f4f9;
+      color: #1d2a44;
+      font-family: "Inter", sans-serif;
+    }
+    .bg {
+      position: absolute;
+      inset: 0;
+      background: #f4f4f9;
+    }
+    .safe {
+      position: absolute;
+      inset: 88px 140px 190px 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .tag {
+      font-family: "Space Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: #c24400;
+    }
+    .title {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 58px;
+      color: #1d2a44;
+    }
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .box {
+      background: #ffffff;
+      border: 4px solid #1d2a44;
+      box-shadow: 10px 10px 0 #1d2a44;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .b-photo {
+      width: 100%;
+      height: 260px;
+      overflow: hidden;
+      border: 2px solid #1d2a44;
+      background: #141518;
+    }
+    .b-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+      display: block;
+    }
+    .b-date {
+      font-family: "Space Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: #c24400;
+    }
+    .b-head {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 36px;
+    }
+    .b-txt {
+      font-size: 28px;
+      line-height: 1.35;
+    }
+    .hl-inline {
+      position: relative;
+      display: inline-block;
+      isolation: isolate;
+      padding: 0 6px;
+    }
+    .hl-bar {
+      position: absolute;
+      inset: 2px 0;
+      background: #bbdf32;
+      z-index: -1;
+      transform-origin: left center;
+    }
+  </style>
+  <div id="root" data-composition-id="scene-08-labianca" data-start="0" data-duration="109" data-width="1920" data-height="1080">
+    <div class="bg"></div>
+    <div class="safe">
+      <div>
+        <div class="tag">DESDOBRAMENTO // 9 E 10 DE AGOSTO</div>
+        <h2 class="title">Manchetes e o Caso LaBianca</h2>
+      </div>
+      <div class="split">
+        <div class="box" id="s8-1">
+          <div class="b-photo"><img src="assets/images/police_car_vintage.jpg" alt="Viatura LAPD 1969" /></div>
+          <div class="b-date">09 DE AGOSTO</div>
+          <div class="b-head">Descoberta do Crime</div>
+          <div class="b-txt">A governanta encontra os corpos; jornais estampam o horror e Garretson é investigado.</div>
+        </div>
+        <div class="box" id="s8-2">
+          <div class="b-photo"><img src="assets/images/newspaper_1969.jpg" alt="Imprensa 1969" /></div>
+          <div class="b-date">10 DE AGOSTO</div>
+          <div class="b-head">Leno e Rosemary LaBianca</div>
+          <div class="b-txt">
+            Segundo ataque em Los Angeles para
+            <span class="hl-inline"><span class="hl-bar" id="s8-hl"></span>incriminar movimentos negros</span>
+            e iniciar guerra civil.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s8-1", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45 }, 38.0)
+      .fromTo("#s8-2", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45 }, 81.0)
+      .fromTo("#s8-hl", { scaleX: 0 }, { scaleX: 1, duration: 0.55, ease: "power2.inOut" }, 95.0);
+    window.__timelines["scene-08-labianca"] = tl;
+    tl.seek(0);
+  </script>
+</template>

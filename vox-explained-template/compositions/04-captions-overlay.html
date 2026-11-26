@@ -1,0 +1,61 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      pointer-events: none;
+      font-family: "Inter", sans-serif;
+    }
+    .caption-bar {
+      position: absolute;
+      left: 50%;
+      bottom: 84px;
+      transform: translateX(-50%);
+      background: rgba(17, 18, 20, 0.92);
+      border: 2px solid rgba(187, 223, 50, 0.45);
+      padding: 14px 28px;
+      border-radius: 10px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .word {
+      font-size: 34px;
+      font-weight: 700;
+      color: #f4f4f9;
+      letter-spacing: -0.01em;
+    }
+    .word.active {
+      color: #bbdf32;
+    }
+  </style>
+
+  <div
+    id="root"
+    data-composition-id="captions-overlay"
+    data-start="0"
+    data-duration="13"
+    data-width="1920"
+    data-height="1080"
+  >
+    <div class="caption-bar" id="cap-bar">
+      <span class="word" id="w1">Legendas</span>
+      <span class="word" id="w2">sincronizadas</span>
+      <span class="word" id="w3">via</span>
+      <span class="word active" id="w4">Whisper</span>
+    </div>
+  </div>
+
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+
+    tl.fromTo("#cap-bar", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, 0.2)
+      .to("#cap-bar", { opacity: 0, duration: 0.3 }, 12.6);
+
+    window.__timelines["captions-overlay"] = tl;
+    tl.seek(0);
+  </script>
+</template>

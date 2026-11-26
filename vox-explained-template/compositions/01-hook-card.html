@@ -1,0 +1,119 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background-color: #f4f4f9;
+      font-family: "Inter", sans-serif;
+      color: #1d2a44;
+    }
+    .paper-bg {
+      position: absolute;
+      inset: 0;
+      background-color: #f4f4f9;
+      background-image: radial-gradient(rgba(17, 18, 20, 0.12) 1.5px, transparent 1.5px);
+      background-size: 32px 32px;
+    }
+    .safe-frame {
+      position: absolute;
+      inset: 108px 192px 175px 192px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 36px;
+    }
+    .badge-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .badge {
+      background: #ff6b00;
+      color: #1d2a44;
+      font-family: "Space Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 10px 22px;
+      border: 3px solid #1d2a44;
+      box-shadow: 6px 6px 0 #1d2a44;
+    }
+    .kicker {
+      font-family: "Space Mono", monospace;
+      font-size: 28px;
+      color: #45474d;
+      letter-spacing: 0.05em;
+    }
+    .headline {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 100px;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: #1d2a44;
+      max-width: 1420px;
+    }
+    .highlight-wrap {
+      position: relative;
+      display: inline-block;
+      padding: 0 12px;
+      isolation: isolate;
+      color: #1d2a44;
+    }
+    .highlight-bg {
+      position: absolute;
+      inset: 8px 0 4px 0;
+      background: #bbdf32;
+      z-index: -1;
+      transform-origin: left center;
+    }
+    .subline {
+      font-size: 36px;
+      line-height: 1.38;
+      color: #1e2024;
+      max-width: 1050px;
+      border-left: 6px solid #1d2a44;
+      padding-left: 28px;
+    }
+  </style>
+
+  <div
+    id="root"
+    data-composition-id="hook-card"
+    data-start="0"
+    data-duration="4"
+    data-width="1920"
+    data-height="1080"
+  >
+    <div class="paper-bg"></div>
+    <div class="safe-frame">
+      <div class="badge-row" id="hook-badge">
+        <span class="badge" data-var-text="badge">EXPLICADO // EP. 01</span>
+        <span class="kicker" data-var-text="kicker">VOX EDITORIAL SYSTEM</span>
+      </div>
+      <h1 class="headline" id="hook-title">
+        Por que esse formato
+        <span class="highlight-wrap">
+          <span class="highlight-bg" id="hook-mark"></span>
+          prende atenção
+        </span>
+        até o final?
+      </h1>
+      <p class="subline" id="hook-sub" data-var-text="subtitle">
+        Uma ideia por cena no ritmo da narração.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+
+    tl.fromTo("#hook-mark", { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power2.inOut" }, 0.35)
+      .fromTo("#hook-sub", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.35, ease: "power2.out" }, 0.55);
+
+    window.__timelines["hook-card"] = tl;
+    tl.seek(0);
+  </script>
+</template>

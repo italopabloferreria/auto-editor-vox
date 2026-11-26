@@ -1,0 +1,166 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: #1d2a44;
+      color: #f4f4f9;
+      font-family: "Inter", sans-serif;
+    }
+    .bg {
+      position: absolute;
+      inset: 0;
+      background: #1d2a44;
+      background-image: radial-gradient(rgba(244, 244, 249, 0.1) 1.5px, transparent 1.5px);
+      background-size: 32px 32px;
+    }
+    .source-tag {
+      position: absolute;
+      top: 44px;
+      left: 140px;
+      background: #000000;
+      color: #d0d3da;
+      font-family: "Space Mono", monospace;
+      font-size: 28px;
+      padding: 6px 16px;
+      border-left: 4px solid #bbdf32;
+    }
+    .safe {
+      position: absolute;
+      inset: 112px 140px 190px 140px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+    .boxed-kicker {
+      background: #000000;
+      color: #ffffff;
+      font-family: "Space Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-bottom: 5px solid #ff6b00;
+      align-self: flex-start;
+    }
+    .title {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 86px;
+      line-height: 1.05;
+      color: #f4f4f9;
+    }
+    .hl-wrap {
+      position: relative;
+      display: inline-block;
+      padding: 0 12px;
+      isolation: isolate;
+      color: #1d2a44;
+    }
+    .hl-bg {
+      position: absolute;
+      inset: 6px 0 4px 0;
+      background: #bbdf32;
+      z-index: -1;
+      transform-origin: left center;
+    }
+    .facts {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .fact {
+      background: #000000;
+      border-left: 6px solid #bbdf32;
+      padding: 16px 24px;
+      font-size: 30px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+    .photo-card {
+      position: relative;
+      background: #f4f4f9;
+      padding: 18px 18px 24px 18px;
+      border: 4px solid #bbdf32;
+      box-shadow: 14px 14px 0 #ff6b00;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .photo-box {
+      width: 100%;
+      height: 440px;
+      overflow: hidden;
+      background: #141518;
+    }
+    .photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .callout-arrow {
+      position: absolute;
+      top: 30px;
+      left: -46px;
+      width: 120px;
+      height: 90px;
+      pointer-events: none;
+    }
+    .photo-cap {
+      font-family: "Space Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: #1d2a44;
+    }
+  </style>
+  <div id="root" data-composition-id="scene-01-hook" data-start="0" data-duration="17.5" data-width="1920" data-height="1080">
+    <div class="bg"></div>
+    <div class="source-tag">FONTE: WIKIMEDIA COMMONS · ARQUIVO 1969</div>
+    <div class="safe">
+      <div class="left">
+        <div class="boxed-kicker">08–09 AGOSTO 1969 · LOS ANGELES</div>
+        <h1 class="title">
+          O Caso
+          <span class="hl-wrap">
+            <span class="hl-bg" id="s1-mark"></span>
+            Tate-LaBianca
+          </span>
+        </h1>
+        <div class="facts">
+          <div class="fact" id="s1-f1">1 corpo alvejado no carro</div>
+          <div class="fact" id="s1-f2">3 hóspedes mortos em Cielo Drive</div>
+          <div class="fact" id="s1-f3">1 estrela grávida assassinada</div>
+        </div>
+      </div>
+      <div class="photo-card" id="s1-photo">
+        <svg class="callout-arrow" viewBox="0 0 120 90" aria-hidden="true">
+          <path id="s1-arrow" d="M 8 18 Q 55 12 96 62 M 78 60 L 98 64 L 94 44" stroke="#ff6b00" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="160" stroke-dashoffset="160" />
+        </svg>
+        <div class="photo-box">
+          <img id="s1-img" src="assets/images/cielo_drive.jpg" alt="Mansão 10050 Cielo Drive" />
+        </div>
+        <div class="photo-cap">10050 CIELO DRIVE · AGOSTO DE 1969</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s1-mark", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power2.inOut" }, 0.3)
+      .to("#s1-arrow", { strokeDashoffset: 0, duration: 0.7, ease: "power2.out" }, 0.9)
+      .fromTo("#s1-img", { scale: 1 }, { scale: 1.07, duration: 17.0, ease: "none" }, 0)
+      .fromTo("#s1-f1", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.35 }, 1.2)
+      .fromTo("#s1-f2", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.35 }, 3.8)
+      .fromTo("#s1-f3", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.35 }, 6.2);
+    window.__timelines["scene-01-hook"] = tl;
+    tl.seek(0);
+  </script>
+</template>

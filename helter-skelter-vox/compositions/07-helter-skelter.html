@@ -1,0 +1,160 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: #1d2a44;
+      color: #f4f4f9;
+      font-family: "Inter", sans-serif;
+    }
+    .bg {
+      position: absolute;
+      inset: 0;
+      background: #1d2a44;
+    }
+    .broll-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.18;
+    }
+    .topo-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .safe {
+      position: absolute;
+      inset: 84px 140px 190px 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .tag {
+      font-family: "Space Mono", monospace;
+      font-size: 28px;
+      color: #bbdf32;
+      letter-spacing: 0.08em;
+    }
+    .big-title {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 74px;
+      line-height: 1.05;
+      color: #f4f4f9;
+    }
+    .hl {
+      background: #ff6b00;
+      color: #1d2a44;
+      padding: 0 18px;
+    }
+    .web-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+    .w-node {
+      background: rgba(17, 18, 20, 0.88);
+      border: 3px solid #bbdf32;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .w-photo {
+      width: 100%;
+      height: 230px;
+      overflow: hidden;
+      background: #141518;
+    }
+    .w-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+      display: block;
+    }
+    .w-num {
+      font-family: "Space Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: #bbdf32;
+    }
+    .w-name {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 30px;
+      color: #f4f4f9;
+    }
+    .w-desc {
+      font-size: 28px;
+      color: #d0d3da;
+      line-height: 1.25;
+    }
+    .banner {
+      background: #bbdf32;
+      color: #1d2a44;
+      font-family: "Archivo Black", sans-serif;
+      font-size: 36px;
+      padding: 18px 26px;
+    }
+  </style>
+  <div id="root" data-composition-id="scene-07-helter" data-start="0" data-duration="134" data-width="1920" data-height="1080">
+    <div class="bg"></div>
+    <video id="s7-broll" class="clip broll-bg" src="assets/broll/la_1960s.mp4" muted data-start="0" data-duration="15"></video>
+    <svg class="topo-bg" viewBox="0 0 1920 1080" aria-hidden="true">
+      <path d="M 0 220 Q 480 120 960 260 T 1920 180" stroke="rgba(255,230,0,0.12)" stroke-width="2" fill="none" />
+      <path d="M 0 540 Q 520 420 1040 580 T 1920 490" stroke="rgba(255,230,0,0.10)" stroke-width="2" fill="none" />
+      <path d="M 0 820 Q 460 710 980 860 T 1920 770" stroke="rgba(255,230,0,0.12)" stroke-width="2" fill="none" />
+    </svg>
+    <div class="safe">
+      <div>
+        <div class="tag">TEIA DE CONEXÕES // O GATILHO</div>
+        <h2 class="big-title">A Obsessão <span class="hl">Helter Skelter</span></h2>
+      </div>
+      <div class="web-row">
+        <div class="w-node" id="s7-1">
+          <div class="w-photo"><img src="assets/images/dennis_wilson.jpg" alt="Dennis Wilson" /></div>
+          <div class="w-num">01 · CONTATO</div>
+          <div class="w-name">Dennis Wilson</div>
+          <div class="w-desc">Apresenta Terry Melcher a Manson.</div>
+        </div>
+        <div class="w-node" id="s7-2">
+          <div class="w-photo"><img src="assets/images/sunset_strip_1960s.jpg" alt="Los Angeles" /></div>
+          <div class="w-num">02 · REJEIÇÃO</div>
+          <div class="w-name">Terry Melcher</div>
+          <div class="w-desc">Desiste do contrato e muda de casa.</div>
+        </div>
+        <div class="w-node" id="s7-3">
+          <div class="w-photo"><img src="assets/images/cielo_drive.jpg" alt="Cielo Drive" /></div>
+          <div class="w-num">03 · ALVO</div>
+          <div class="w-name">Cielo Drive</div>
+          <div class="w-desc">Alugada por Polanski e Sharon Tate.</div>
+        </div>
+        <div class="w-node" id="s7-4">
+          <div class="w-photo"><img src="assets/images/beatles_white_album.jpg" alt="Beatles White Album" /></div>
+          <div class="w-num">04 · TEORIA</div>
+          <div class="w-name">White Album</div>
+          <div class="w-desc">Manson ordena guerra racial.</div>
+        </div>
+      </div>
+      <div class="banner" id="s7-ban">PLANO: CULPAR MOVIMENTOS NEGROS E EMERGIR COMO LÍDER</div>
+    </div>
+  </div>
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s7-1", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, 1.0)
+      .fromTo("#s7-2", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, 12.0)
+      .fromTo("#s7-3", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, 53.0)
+      .fromTo("#s7-4", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, 73.0)
+      .fromTo("#s7-ban", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.45 }, 110.0);
+    window.__timelines["scene-07-helter"] = tl;
+    tl.seek(0);
+  </script>
+</template>

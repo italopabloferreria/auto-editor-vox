@@ -1,0 +1,131 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: #f4f4f9;
+      color: #1d2a44;
+      font-family: "Inter", sans-serif;
+    }
+    .bg {
+      position: absolute;
+      inset: 0;
+      background: #f4f4f9;
+      background-image: radial-gradient(rgba(17, 18, 20, 0.1) 1.5px, transparent 1.5px);
+      background-size: 32px 32px;
+    }
+    .safe {
+      position: absolute;
+      inset: 84px 140px 190px 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .tag {
+      font-family: "Space Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: #c24400;
+    }
+    .title {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 58px;
+      color: #1d2a44;
+    }
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+    .t-card {
+      background: #ffffff;
+      border: 3px solid #1d2a44;
+      box-shadow: 8px 8px 0 #1d2a44;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .t-photo {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      border: 2px solid #1d2a44;
+      background: #141518;
+    }
+    .t-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+      display: block;
+    }
+    .t-year {
+      font-family: "Space Mono", monospace;
+      font-size: 30px;
+      font-weight: 700;
+      background: #bbdf32;
+      display: inline-block;
+      padding: 4px 12px;
+      border: 2px solid #1d2a44;
+      align-self: flex-start;
+    }
+    .t-head {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 28px;
+      color: #1d2a44;
+    }
+    .t-body {
+      font-size: 28px;
+      line-height: 1.25;
+      color: #2c2e33;
+    }
+  </style>
+  <div id="root" data-composition-id="scene-06-origem" data-start="0" data-duration="106" data-width="1920" data-height="1080">
+    <div class="bg"></div>
+    <div class="safe">
+      <div>
+        <div class="tag">ANTES DE AGOSTO DE 1969 // A ORIGEM</div>
+        <h2 class="title">Como nasceu a Família Manson</h2>
+      </div>
+      <div class="timeline-grid">
+        <div class="t-card" id="s6-1">
+          <div class="t-photo"><img src="assets/images/manson.jpg" alt="Charles Manson 1968" /></div>
+          <span class="t-year">1966</span>
+          <div class="t-head">Saída da Prisão</div>
+          <div class="t-body">Aos 32 anos, atrai jovens hippies.</div>
+        </div>
+        <div class="t-card" id="s6-2">
+          <div class="t-photo"><img src="assets/images/hippies_1960s.jpg" alt="Haight-Ashbury 1967" /></div>
+          <span class="t-year">1967</span>
+          <div class="t-head">Seita &amp; LSD</div>
+          <div class="t-body">Manipulação e testes de QI altos.</div>
+        </div>
+        <div class="t-card" id="s6-3">
+          <div class="t-photo"><img src="assets/images/dennis_wilson.jpg" alt="Dennis Wilson" /></div>
+          <span class="t-year">1968</span>
+          <div class="t-head">Beach Boys</div>
+          <div class="t-body">Dennis Wilson abriga o grupo.</div>
+        </div>
+        <div class="t-card" id="s6-4">
+          <div class="t-photo"><img src="assets/images/manson_1970.jpg" alt="Manson música" /></div>
+          <span class="t-year">MÚSICA</span>
+          <div class="t-head">Compositor</div>
+          <div class="t-body">Banda grava uma obra de Manson.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s6-1", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45 }, 1.5)
+      .fromTo("#s6-2", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45 }, 35.0)
+      .fromTo("#s6-3", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45 }, 76.0)
+      .fromTo("#s6-4", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45 }, 92.0);
+    window.__timelines["scene-06-origem"] = tl;
+    tl.seek(0);
+  </script>
+</template>

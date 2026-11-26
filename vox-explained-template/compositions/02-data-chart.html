@@ -1,0 +1,171 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: #1d2a44;
+      color: #f4f4f9;
+      font-family: "Inter", sans-serif;
+    }
+    .ink-bg {
+      position: absolute;
+      inset: 0;
+      background: #1d2a44;
+    }
+    .safe-frame {
+      position: absolute;
+      inset: 96px 192px 175px 192px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 2px solid rgba(244, 244, 249, 0.25);
+      padding-bottom: 24px;
+    }
+    .label {
+      font-family: "Space Mono", monospace;
+      font-size: 28px;
+      color: #bbdf32;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+    .title {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 60px;
+      line-height: 1.1;
+      color: #f4f4f9;
+    }
+    .big-stat {
+      font-family: "Space Mono", monospace;
+      font-size: 74px;
+      font-weight: 700;
+      color: #bbdf32;
+      font-variant-numeric: tabular-nums;
+    }
+    .bars {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      margin: 16px 0;
+    }
+    .bar-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .bar-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 30px;
+      font-weight: 600;
+      color: #f4f4f9;
+    }
+    .bar-val {
+      font-family: "Space Mono", monospace;
+      font-variant-numeric: tabular-nums;
+      color: #bbdf32;
+    }
+    .bar-track {
+      width: 100%;
+      height: 40px;
+      background: rgba(244, 244, 249, 0.12);
+      border: 2px solid rgba(244, 244, 249, 0.28);
+    }
+    .bar-fill {
+      height: 100%;
+      width: 100%;
+      transform-origin: left center;
+    }
+    .fill-yellow {
+      background: #bbdf32;
+    }
+    .fill-coral {
+      background: #ff6b00;
+    }
+    .fill-slate {
+      background: #9ca0a8;
+    }
+    .source {
+      font-family: "Space Mono", monospace;
+      font-size: 28px;
+      color: #b8bcc4;
+    }
+  </style>
+
+  <div
+    id="root"
+    data-composition-id="data-chart"
+    data-start="0"
+    data-duration="5"
+    data-width="1920"
+    data-height="1080"
+  >
+    <div class="ink-bg"></div>
+    <div class="safe-frame">
+      <div class="header" id="chart-header">
+        <div>
+          <div class="label">DADO CENTRAL // RETENÇÃO</div>
+          <h2 class="title" data-var-text="chartTitle">Explicação visual vs. texto puro</h2>
+        </div>
+        <div class="big-stat" id="chart-stat">+65%</div>
+      </div>
+
+      <div class="bars">
+        <div class="bar-row" id="row-1">
+          <div class="bar-meta">
+            <span>Ritmo visual + destaque de dados</span>
+            <span class="bar-val">82%</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill fill-yellow" id="bar-1"></div>
+          </div>
+        </div>
+
+        <div class="bar-row" id="row-2">
+          <div class="bar-meta">
+            <span>B-roll contextual + legenda dinâmica</span>
+            <span class="bar-val">64%</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill fill-coral" id="bar-2"></div>
+          </div>
+        </div>
+
+        <div class="bar-row" id="row-3">
+          <div class="bar-meta">
+            <span>Tela estática sem marcação visual</span>
+            <span class="bar-val">29%</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill fill-slate" id="bar-3"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="source" id="chart-source">FONTE: DADOS ILUSTRATIVOS — SUBSTITUA PELO SEU ROTEIRO</div>
+    </div>
+  </div>
+
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+
+    tl.fromTo("#chart-header", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0.1)
+      .fromTo("#row-1", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0.35)
+      .fromTo("#bar-1", { scaleX: 0 }, { scaleX: 0.82, duration: 0.7, ease: "power3.out" }, 0.4)
+      .fromTo("#row-2", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0.85)
+      .fromTo("#bar-2", { scaleX: 0 }, { scaleX: 0.64, duration: 0.7, ease: "power3.out" }, 0.9)
+      .fromTo("#row-3", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 1.35)
+      .fromTo("#bar-3", { scaleX: 0 }, { scaleX: 0.29, duration: 0.7, ease: "power3.out" }, 1.4)
+      .fromTo("#chart-source", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 1.75);
+
+    window.__timelines["data-chart"] = tl;
+    tl.seek(0);
+  </script>
+</template>
